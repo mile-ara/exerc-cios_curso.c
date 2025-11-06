@@ -1,19 +1,8 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_lis.c                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: milenaaraujorodrigues2102 <milenaaraujo    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/17 12:24:59 by milenaarauj       #+#    #+#             */
-/*   Updated: 2025/10/17 18:54:32 by milenaarauj      ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 
 #include <stdio.h>
 #include <string.h>
 
-int main()
+int main(void)
 {
     char nome1[50], nome2[50], nome3[50];
     char sexo1, sexo2, sexo3;
@@ -22,8 +11,12 @@ int main()
     printf("Cadastrando a primeira pessoa:\n");
     printf("----------------------------------\n");
     printf("NOME: ");
-    fgets(nome1, sizeof(nome1), stdin);
-    nome1[strcspn(nome1, "\n")] = 0;
+    fgets(nome1, sizeof(nome1), stdin);// Lê uma linha de texto do teclado (stdin) e armazena no array 'nome1'.
+    // 'sizeof(nome1)' garante que não sejam lidos mais caracteres do que o tamanho do array permite.
+
+    nome1[strcspn(nome1, "\n")] = 0; // Substitui o caractere '\n' (nova linha) por '\0' (fim de string), caso exista.
+    //retorna a posição do '\n' dentro de nome1.
+    // Isso evita que a quebra de linha fique na string, deixando-a "limpa".
     printf("SEXO [M/F]: ");
     scanf(" %c", &sexo1);
     printf("NOTA: ");
@@ -58,5 +51,5 @@ int main()
     printf("%-20s %-5c %.1f\n", nome2, sexo2, nota2);
     printf("%-20s %-5c %.1f\n", nome3, sexo3, nota3);
 
-    return 0;
+    return(0);
 }
